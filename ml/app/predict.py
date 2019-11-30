@@ -204,14 +204,33 @@ def predict_image(image):
                         'probability': truncated_probablity,
                         'tagId': '',
                         'boundingBox': None })
+            # response = { 
+            #     'id': '',
+            #     'project': '',
+            #     'iteration': '',
+            #     'created': datetime.utcnow().isoformat(),
+            #     'predictions': result 
+            # }
 
-            response = { 
-                'id': '',
-                'project': '',
-                'iteration': '',
-                'created': datetime.utcnow().isoformat(),
-                'predictions': result 
-            }
+            def quickSort(lon):
+              if len(lon) <= 1:
+                return lon
+              pivot = lon.pop(0)
+              equal = [pivot]
+              less = []
+              greater = []
+
+              for n in lon:
+                if n['probability'] > pivot['probability']:
+                  greater.append(n)
+                elif n['probability'] < pivot['probability']:
+                  less.append(n)
+                else:
+                  equal.append(n)
+
+              return quickSort(greater) + equal + quickSort(less)
+
+            response = quickSort(result)[0]['tagName']
 
             log_msg("Results: " + str(response))
             return response

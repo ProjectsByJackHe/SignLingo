@@ -44,7 +44,7 @@ def predict_image_handler(project=None, publishedName=None):
 
         img = Image.open(imageData)
         results = predict_image(img)
-        return jsonify(results)
+        return results
     except Exception as e:
         print('EXCEPTION:', str(e))
         return 'Error processing image', 500
@@ -74,5 +74,5 @@ if __name__ == '__main__':
     initialize()
 
     # Run the server
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=6969)
 
