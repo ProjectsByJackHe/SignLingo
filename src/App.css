@@ -20,3 +20,20 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* TEXT */
+#text {
+  border-style: groove;
+  border-width: 30px;
+}
+#text-to-spell{
+  font-size: 80px;
+  text-align: center;
+}
+
+#letter-to-rep{
+  font-size: 100px;
+  text-align: center;
+  color: red;
+}
+
