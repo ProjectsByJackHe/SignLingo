@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Welcome to Sign Lingo!
+
+Sign Lingo is a web app that uses machine learning to help teach sign language. 
+We trained a model with a dataset of 5000+ images to give the most accurate representation of sign
+language possible. 
 
 ## Available Scripts
 
