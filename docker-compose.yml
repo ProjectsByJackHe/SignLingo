@@ -1,0 +1,12 @@
+version: '0'
+services:
+  nginx:
+    container_name: nginx
+    build: .
+    ports: 
+      - 80:80
+    links:
+      - "ml:server"
+  ml:
+    container_name: ml
+    build: ./ml

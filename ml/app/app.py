@@ -76,5 +76,5 @@ if __name__ == '__main__':
     initialize()
 
     # Run the server
-    app.run(host='0.0.0.0', port=6969)
+    app.run(host='0.0.0.0', port=8080)
 
