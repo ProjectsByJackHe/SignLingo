@@ -2,52 +2,49 @@ import React, {useState} from 'react';
 import { Grid } from 'semantic-ui-react';
 import Camera from './Camera';
 
-const listOfWords = [
-    ["U", "B", "C"], ["S", "T", "A", "N", "F", "O", "R", "D"], ["M", "I", "T"]
-]
+const listOfWords = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", 
+"T", "U", "V", "W", "X", "Y", "Z"]
 
-const listOfImg = [
-    ["/assets/U.png", "/assets/B.png", "/assets/C.jpg"],
-    ["/assets/S.png", "/assets/T.png", "/assets/A.png", "/assets/N.png", "/assets/F.jpg", "/assets/O.png", "/assets/R.png", "/assets/D.png"],
-    ["/assets/M.png", "/assets/I.png", "/assets/T.png"]
-]
+const listOfImg = 
+    ["/assets/A.png", "/assets/B.png", "/assets/C.jpg", "/assets/D.png", "/assets/E.png", "/assets/F.jpg", "/assets/G.png", "/assets/H.jpeg",
+     "/assets/I.png", "/assets/J.png", "/assets/K.png", "/assets/L.jpg", "/assets/M.png", "/assets/N.png", "/assets/O.png", "/assets/P.png",
+     "/assets/Q.png", "/assets/R.png", "/assets/S.png", "/assets/T.png", "/assets/U.png", "/assets/V.png", "/assets/W.png", "/assets/X.png", "/assets/Y.png", "/assets/Z.png"]
+
 
 function Text(){
     var [i, setI] = useState(0)
-    var [j, setJ] = useState(0)
     
     return(
     <div id = "text">
       <Grid>
         <Grid.Row columns={2}>
           <Grid.Column>
-            <h1 id = "text-to-spell">{listOfWords[i]}</h1>
-            <h1 id = "letter-to-rep">{listOfWords[i][j]}</h1>
-            <img src = {listOfImg[i][j]} width = "100px" height = "200px" alt="Sign"></img>
+            <h1 id = "letter-to-rep">{listOfWords[i]}</h1>
+            <img src = {listOfImg[i]} width = "200px" height = "300px" alt="Sign"></img><br />
 
+            <button className = "btn-danger" onClick = {() => {
+                    if (i === 0){
+                        setI(i = listOfWords.length - 1)} 
+                    else{
+                        setI(i -= 1)
+                    }}}> 
+                Previous Letter
+            </button>
             <button className = "btn-primary" onClick = {() => 
                     {if (i === listOfWords.length - 1){
                         setI(i = 0)
-                        setJ(j = 0)} 
+                       } 
                     else{
                         setI(i += 1)
-                        setJ(j = 0)
                     }
                 }
             }>
-              Next word
+              Next Letter
             </button>
-            <button className = "btn-danger" onClick = {() => {
-                    if (j === listOfWords[i].length - 1){
-                        setJ(j = 0)} 
-                    else{
-                        setJ(j += 1)
-                    }}}> 
-                Next letter
-            </button>
+
           </Grid.Column>
           <Grid.Column>
-            <Camera letter={listOfWords[i][j]} />
+            <Camera letter={listOfWords[i]} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

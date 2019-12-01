@@ -17,7 +17,7 @@ function Camera({letter}){
         console.log("sending...")
         axios({
           method: 'POST',
-          url: 'http://127.0.0.1:6969/url',
+          url: 'http://heimdall.phillytan.xyz:3003/url',
           data: {
             url: imageSrc
           }
