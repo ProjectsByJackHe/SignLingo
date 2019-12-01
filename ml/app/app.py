@@ -11,8 +11,10 @@ from PIL import Image
 
 # Imports for prediction
 from predict import initialize, predict_image, predict_url
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 # 4MB Max image size limit
 app.config['MAX_CONTENT_LENGTH'] = 4 * 1024 * 1024 

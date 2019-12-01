@@ -22,10 +22,10 @@
 }
 
 /* TEXT */
-#text {
+/* #text {
   border-style: groove;
   border-width: 30px;
-}
+} */
 #text-to-spell{
   font-size: 80px;
   text-align: center;

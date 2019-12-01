@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { Grid } from 'semantic-ui-react';
+import Camera from './Camera';
 
 const listOfWords = [
     ["U", "B", "C"], ["S", "T", "A", "N", "F", "O", "R", "D"], ["M", "I", "T"]
@@ -16,11 +18,14 @@ function Text(){
     
     return(
     <div id = "text">
+      <Grid>
+        <Grid.Row columns={2}>
+          <Grid.Column>
             <h1 id = "text-to-spell">{listOfWords[i]}</h1>
             <h1 id = "letter-to-rep">{listOfWords[i][j]}</h1>
-            <img src = {listOfImg[i][j]} width = "100px" height = "200px"></img>
+            <img src = {listOfImg[i][j]} width = "100px" height = "200px" alt="Sign"></img>
 
-            <button class = "btn-primary" onClick = {() => 
+            <button className = "btn-primary" onClick = {() => 
                     {if (i === listOfWords.length - 1){
                         setI(i = 0)
                         setJ(j = 0)} 
@@ -30,9 +35,9 @@ function Text(){
                     }
                 }
             }>
-             Next word
+              Next word
             </button>
-            <button class = "btn-danger" onClick = {() => {
+            <button className = "btn-danger" onClick = {() => {
                     if (j === listOfWords[i].length - 1){
                         setJ(j = 0)} 
                     else{
@@ -40,6 +45,12 @@ function Text(){
                     }}}> 
                 Next letter
             </button>
+          </Grid.Column>
+          <Grid.Column>
+            <Camera letter={listOfWords[i][j]} />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </div>
     )
 }

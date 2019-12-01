@@ -230,7 +230,8 @@ def predict_image(image):
 
               return quickSort(greater) + equal + quickSort(less)
 
-            response = quickSort(result)[0]['tagName']
+            # response = quickSort(result)[0]['tagName']
+            response = result
 
             log_msg("Results: " + str(response))
             return response
